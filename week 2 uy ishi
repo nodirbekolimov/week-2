@@ -1,0 +1,43 @@
+# Car Wash Service Calculator
+
+basic_price = 10.00
+deluxe_price = 17.00
+premium_price = 25.00
+
+total = 0.0
+
+print("=== Car Wash Service Calculator ===")
+print("Enter service package: basic, deluxe, or premium")
+print("Type 'done' when finished selecting services\n")
+
+package = input("Enter service package: ")
+
+while package != "done":
+    if package == "basic":
+        price = basic_price
+    elif package == "deluxe":
+        price = deluxe_price
+    elif package == "premium":
+        price = premium_price
+    else:
+        price = 0.0
+        print("Invalid package. Please enter basic, deluxe, or premium.")
+
+    if price > 0:
+        total = total + price
+        print(f"Price: ${price:.2f}")
+        print(f"Current total: ${total:.2f}")
+
+    print()
+    package = input("Enter service package: ")
+
+# ---------- Summary ----------
+subtotal = total
+savings = (subtotal >= 45.00) * 6.00
+final_total = subtotal - savings
+
+print("\n=== Service Summary ===")
+print(f"Subtotal: ${subtotal:.2f}")
+print(f"Membership Savings: -${savings:.2f}")
+print(f"Final Total: ${final_total:.2f}")
+print("Thank you for choosing our service!")
